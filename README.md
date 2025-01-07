@@ -27,20 +27,37 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
 **PROGRAM**
-![WhatsApp Image 2024-12-15 at 10 00 47_bf195b8d](https://github.com/user-attachments/assets/72848116-ac89-4de7-a233-b7dd2af3ee3f)
 
- Developed by: RegisterNumber: 24900265
+module d_ff_neg_edge (d, clk, rst, q);
+  input d, clk, rst;
+  output reg q;
+
+  always @(negedge clk or posedge rst) begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else
+      q <= d; // D input is passed to Q on the negative clock edge
+  end
+endmodule
+
+ Developed by:A CHANDHNA
+ RegisterNumber: 24900265
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
-![WhatsApp Image 2024-12-15 at 10 00 47_2d881502](https://github.com/user-attachments/assets/33f3c735-1a77-4006-9240-0aeeb2c135ab)
+
+
+![8 rtl](https://github.com/user-attachments/assets/fea025c8-3b55-44f3-9fbe-81772f0ca966)
+
 
 **TIMING DIAGRAMS FOR FLIP FLOPS**
-![WhatsApp Image 2024-12-15 at 10 00 47_70fb4a21](https://github.com/user-attachments/assets/1632e5ad-a1f4-4c2e-baa6-f062f114395e)
+
+
+![8 td](https://github.com/user-attachments/assets/611923a6-ee6a-4160-b98b-cd63ddd10056)
 
 
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
 
 
 **RESULTS**
+Thus D Flip Flop is implemented successfully.
